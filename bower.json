@@ -1,0 +1,20 @@
+{
+  "name": "laravel-blog",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Infernosquad/laravel-blog",
+  "authors": [
+    "infernosquad <infzanoza@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  }
+}
