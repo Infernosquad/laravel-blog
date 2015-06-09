@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','AppController@index');
+
+Route::resource('article','ArticleController');
