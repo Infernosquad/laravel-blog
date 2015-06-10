@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Validator, Input, Session;
+
 class ArticleController extends Controller
 {
     /**
@@ -29,7 +31,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('article.create');
     }
 
     /**
@@ -39,7 +41,32 @@ class ArticleController extends Controller
      */
     public function store()
     {
-        //
+        $rules = array(
+            'title' => 'required',
+            'body'  => 'required',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+
+            return redirect()
+                ->route('article.create')
+                ->withErrors($validator);
+
+        } else {
+
+            Article::create(array(
+                'title' => Input::get('title'),
+                'body'  => Input::get('body')
+            ))->save();
+
+            // redirect
+            Session::flash('message', 'Successfully created article!');
+
+            return redirect()->route('article.index');
+        }
     }
 
     /**

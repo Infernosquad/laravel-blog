@@ -23,6 +23,11 @@
                         {{ trans('navbar.articles') }}
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('article.create') }}">
+                        {{ trans('navbar.post') }}
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
