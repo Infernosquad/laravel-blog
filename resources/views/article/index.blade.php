@@ -13,7 +13,11 @@
 
     @foreach ($articles as $article)
         <article>
-            <h1>{{ $article->title }}</h1>
+            <h1>
+                <a href="{{ route('article.show',['article' => $article->id]) }}">
+                    {{ $article->title }}
+                </a>
+            </h1>
             <p>{{ $article->body }}</p>
         </article>
     @endforeach
