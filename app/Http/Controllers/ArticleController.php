@@ -39,7 +39,7 @@ class ArticleController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store($id = 0)
     {
         $rules = array(
             'title' => 'required',
@@ -57,10 +57,9 @@ class ArticleController extends Controller
 
         } else {
 
-            Article::create(array(
-                'title' => Input::get('title'),
-                'body'  => Input::get('body')
-            ))->save();
+            $article = Article::findOrNew($id);
+            $article->fill(Input::all());
+            $article->save();
 
             // redirect
             Session::flash('message', 'Successfully created article!');
@@ -90,7 +89,9 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+
+        return view('article.create',['article' => $article ]);
     }
 
     /**
@@ -101,7 +102,7 @@ class ArticleController extends Controller
      */
     public function update($id)
     {
-        //
+        return $this->store($id);
     }
 
     /**

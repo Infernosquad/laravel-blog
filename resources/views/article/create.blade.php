@@ -16,7 +16,12 @@
 
     <?php $options = ['class' => 'form-control'] ?>
 
-    {!! Form::open(array('route' => 'article.store','method' => 'POST')) !!}
+    @if (isset($article))
+        {!! Form::model($article, array('route' => array('article.update', $article->id),'method' => 'PUT')) !!}
+    @else
+        {!! Form::open(array('route' => 'article.store' ,'method' => 'POST')) !!}
+    @endif
+
     <div class="form-group">
         <label for="title">
             Title
