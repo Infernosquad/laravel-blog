@@ -21,4 +21,6 @@
             <p>{{ $article->body }}</p>
         </article>
     @endforeach
+
+    {!! $articles->render() !!}
 @endsection
