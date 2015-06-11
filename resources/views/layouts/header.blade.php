@@ -12,23 +12,7 @@
             </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="{{ route('home') }}">
-                        {{ trans('navbar.home') }}
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('article.index') }}">
-                        {{ trans('navbar.articles') }}
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('article.create') }}">
-                        {{ trans('navbar.post') }}
-                    </a>
-                </li>
-            </ul>
+            {!! $menu_main->asUl(array('class' => 'nav navbar-nav')) !!}
         </div>
     </div>
 </nav>
