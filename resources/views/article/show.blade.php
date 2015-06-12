@@ -25,4 +25,7 @@
             Edit article
         </a>
     </div>
+
+    @include('comment.list', ['comments' => $article->comments])
+
 @endsection
