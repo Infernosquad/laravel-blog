@@ -26,6 +26,6 @@
         </a>
     </div>
 
+    @include('comment.create', ['article' => $article->id])
     @include('comment.list', ['comments' => $article->comments])
-
 @endsection

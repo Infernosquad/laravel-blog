@@ -8,6 +8,8 @@
 @include('layouts.header')
 
 <div class="container content">
+    @include('misc.validation')
+    @include('misc.alert',['name' => 'message', 'type' => 'info'])
     @yield('content')
 </div>
 

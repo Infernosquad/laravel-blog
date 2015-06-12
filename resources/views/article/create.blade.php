@@ -3,17 +3,6 @@
 @section('title', 'Page Title')
 
 @section('content')
-
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
     <?php $options = ['class' => 'form-control'] ?>
 
     @if (isset($article))

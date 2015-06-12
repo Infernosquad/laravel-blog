@@ -14,3 +14,4 @@
 Route::get('/',['as' => 'home','uses' => 'AppController@index']);
 
 Route::resource('article','ArticleController');
+Route::resource('comment','CommentController');
