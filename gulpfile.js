@@ -1,4 +1,6 @@
+var gulp = require("gulp");
 var elixir = require('laravel-elixir');
+var symlink = require('gulp-symlink');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,8 +13,33 @@ var elixir = require('laravel-elixir');
  |
  */
 
+var web_dir = 'public';
+var bower_dir = 'vendor/bower_components';
+var asset_dir = 'resources/assets';
+
+gulp.task('symlink', function() {
+    return gulp.src(bower_dir + '/bootstrap/fonts')
+        .pipe(symlink(web_dir+'/build/fonts'));
+});
+
 elixir(function(mix) {
     mix.less('app.less');
 
-    mix.version('public/css/app.css');
+    mix.scripts(
+        [
+            bower_dir + '/jquery/dist/jquery.js',
+            asset_dir + '/js/app.js'
+        ],
+        'public/js/app.js',
+        './'
+    );
+
+    mix.version(
+        [
+            web_dir + '/css/app.css',
+            web_dir + '/js/app.js'
+        ]
+    );
+
+    mix.task('symlink');
 });

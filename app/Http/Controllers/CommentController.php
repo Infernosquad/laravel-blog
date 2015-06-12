@@ -22,8 +22,6 @@ class CommentController extends Controller
      */
     public function store($id = 0)
     {
-        if(!Input::has('article_id')) throw new InvalidArgumentException();
-
         $rules = array(
             'comment'    => 'required',
             'article_id' => 'required',
@@ -34,7 +32,7 @@ class CommentController extends Controller
         // process the login
         if ($validator->fails()) {
             return redirect()
-                ->route('article.show',array('id' => Input::get('article_id')))
+                ->back()
                 ->withErrors($validator);
         } else {
 
@@ -42,10 +40,7 @@ class CommentController extends Controller
             $article->fill(Input::all());
             $article->save();
 
-            // redirect
-            Session::flash('message', 'Comment has been posted!');
-
-            return redirect()->route('article.show',array('id' => Input::get('article_id')));
+            return redirect()->back()->with('message', 'Comment has been posted!');
         }
     }
 
@@ -68,6 +63,8 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Comment::find($id)->delete();
+
+        return redirect()->back()->with('message','Successfully deleted the comment!');
     }
 }
