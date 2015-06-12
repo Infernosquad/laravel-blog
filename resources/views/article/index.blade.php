@@ -19,6 +19,15 @@
                 </a>
             </h1>
             <p>{{ str_limit($article->body,1000) }}</p>
+            <footer>
+                <div>
+                    Comments: {{ count($article->comments) }}
+                </div>
+
+                <div>
+                    Created: {{ $article->created_at }}
+                </div>
+            </footer>
         </article>
     @endforeach
 
