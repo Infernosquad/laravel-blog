@@ -14,11 +14,10 @@ class ArticleTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-
         for ($i = 0; $i < 100; $i++) {
             Article::create(array(
-                'title' => $faker->text(20),
-                'body'  => $faker->realText(1000),
+                'title' => $faker->text(100),
+                'body'  => $faker->paragraphs(40,true),
             ));
         }
     }

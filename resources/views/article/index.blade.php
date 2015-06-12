@@ -18,7 +18,7 @@
                     {{ $article->title }}
                 </a>
             </h1>
-            <p>{{ $article->body }}</p>
+            <p>{{ str_limit($article->body,1000) }}</p>
         </article>
     @endforeach
 
