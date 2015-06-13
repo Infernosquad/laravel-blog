@@ -6,22 +6,24 @@
     <?php $options = ['class' => 'form-control'] ?>
 
     @if (isset($article))
+        <?php $tags = $article->tags->implode('tag',',')  ?>
         {!! Form::model($article, array('route' => array('article.update', $article->id),'method' => 'PUT')) !!}
     @else
+        <?php $tags = '' ?>
         {!! Form::open(array('route' => 'article.store' ,'method' => 'POST')) !!}
     @endif
 
     <div class="form-group">
-        <label for="title">
-            Title
-        </label>
+        {!! Form::label('title','Title') !!}
         {!! Form::text('title',null,$options) !!}
     </div>
     <div class="form-group">
-        <label for="title">
-            Body
-        </label>
+        {!! Form::label('body','Body') !!}
         {!! Form::textarea('body',null,$options) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label('tags','Tags') !!}
+        <input name="tags" type="hidden" data-role="tagsinput" value="{{ $tags }}">
     </div>
     {!! Form::submit('Submit',['class' => 'btn btn-success btn-block']) !!}
     {!! Form::close() !!}

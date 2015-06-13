@@ -12,4 +12,9 @@ class Article extends Model
     {
         return $this->hasMany('App\Comment');
     }
+
+    public function tags()
+    {
+        return $this->hasMany('App\Tag');
+    }
 }

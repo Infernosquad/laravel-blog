@@ -12,7 +12,7 @@
             {{ $article->body }}
         </p>
         <footer>
-
+            @include('tag.list', ['tags' => $article->tags])
         </footer>
     </article>
 
