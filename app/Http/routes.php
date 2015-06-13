@@ -15,3 +15,10 @@ Route::get('/',['as' => 'home','uses' => 'AppController@index']);
 
 Route::resource('article','ArticleController');
 Route::resource('comment','CommentController');
+
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login',['as' => 'auth.login_check','uses' => 'Auth\AuthController@postLogin']);
+Route::get('auth/logout',['as' => 'auth.logout','uses' => 'Auth\AuthController@getLogout']);
+
+Route::get('auth/register',['as' => 'auth.register','uses' => 'Auth\AuthController@getRegister']);
+Route::post('auth/register',['as' => 'auth.register_check','uses' => 'Auth\AuthController@postRegister']);

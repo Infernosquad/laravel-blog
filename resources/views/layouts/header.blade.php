@@ -13,6 +13,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             {!! $menu_main->asUl(array('class' => 'nav navbar-nav')) !!}
+            @include('auth.login')
         </div>
     </div>
 </nav>

@@ -28,6 +28,7 @@ elixir(function(mix) {
     mix.scripts(
         [
             bower_dir + '/jquery/dist/jquery.js',
+            bower_dir + '/bootstrap/dist/js/bootstrap.js',
             bower_dir + '/bootstrap-tagsinput/dist/bootstrap-tagsinput.js',
             asset_dir + '/js/app.js'
         ],
