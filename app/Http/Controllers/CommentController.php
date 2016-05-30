@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\Comment;
 use Doctrine\Instantiator\Exception\InvalidArgumentException;
 use Illuminate\Http\Request;
@@ -20,8 +21,12 @@ class CommentController extends Controller
      *
      * @return Response
      */
-    public function store($id = 0)
+    public function store()
     {
+        $article = Article::findOrFail(Input::get('article_id'));
+
+        $this->authorize('create-comment', $article);
+
         $rules = array(
             'comment'    => 'required',
             'article_id' => 'required',
@@ -36,9 +41,9 @@ class CommentController extends Controller
                 ->withErrors($validator);
         } else {
 
-            $article = Comment::findOrNew($id);
-            $article->fill(Input::all());
-            $article->save();
+            $comment = Comment::create();
+            $comment->fill(Input::all());
+            $comment->save();
 
             return redirect()->back()->with('message', 'Comment has been posted!');
         }

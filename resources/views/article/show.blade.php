@@ -26,6 +26,10 @@
         </a>
     </div>
 
-    @include('comment.create', ['article' => $article->id])
+
+    @can('create-comment', $article)
+        @include('comment.create', ['article' => $article->id])
+    @endcan
+
     @include('comment.list', ['comments' => $article->comments])
 @endsection
