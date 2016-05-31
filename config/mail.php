@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'mail'),
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,6 +55,11 @@ return [
     */
 
     'from' => ['address' => null, 'name' => null],
+
+    'to' => [
+        'address' => 'infzanozadev@gmail.com',
+        'name'    => 'Dev Example'
+    ],
 
     /*
     |--------------------------------------------------------------------------
