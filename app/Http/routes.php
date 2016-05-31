@@ -22,3 +22,7 @@ Route::get('auth/logout',['as' => 'auth.logout','uses' => 'Auth\AuthController@g
 
 Route::get('auth/register',['as' => 'auth.register','uses' => 'Auth\AuthController@getRegister']);
 Route::post('auth/register',['as' => 'auth.register_check','uses' => 'Auth\AuthController@postRegister']);
+
+Route::get('/donate',['as' => 'donate','uses' => 'PaymentController@preparePayment']);
+
+Route::get('/pay',['as' => 'payment_done','uses' => 'PaymentController@done']);

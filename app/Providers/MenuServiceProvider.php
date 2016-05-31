@@ -17,6 +17,7 @@ class MenuServiceProvider extends ServiceProvider
             $menu->add(trans('navbar.home'), array('route' => 'home'));
             $menu->add(trans('navbar.articles'), array('route' => 'article.index'));
             $menu->add(trans('navbar.post'), array('route' => 'article.create'));
+            $menu->add('Donate', array('route' => 'donate'));
         });
     }
 

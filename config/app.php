@@ -138,6 +138,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Caffeinated\Menus\MenusServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Payum\LaravelPackage\PayumServiceProvider::class,
 
         /*
          * Application Service Providers...
