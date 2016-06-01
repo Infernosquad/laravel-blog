@@ -139,6 +139,7 @@ return [
         Caffeinated\Menus\MenusServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Payum\LaravelPackage\PayumServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -198,8 +199,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => Collective\Html\FormFacade::class,
         'HTML'      => Collective\Html\HtmlFacade::class,
-        'Menu'      => Caffeinated\Menus\Facades\Menu::class
-
+        'Menu'      => Caffeinated\Menus\Facades\Menu::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

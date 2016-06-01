@@ -7,6 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Mail;
+use Socialite;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -81,11 +83,41 @@ class AuthController extends Controller
      *
      * @return Response
      */
-    public function authenticate()
+    public function authenticate($email,$password)
     {
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             // Authentication passed...
             return redirect()->intended('dashboard');
         }
+    }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('github')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('github')->user();
+
+        $user = User::where('email',$user->email)->first();
+
+        if($user){
+            Auth::loginUsingId($user->id);
+
+            return redirect()->route('home')->with('message','You have been logged in successfully');
+        }
+
+        return redirect()->route('home')->with('message',"User doesn't exist");
     }
 }

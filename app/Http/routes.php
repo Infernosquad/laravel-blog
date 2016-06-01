@@ -26,3 +26,6 @@ Route::post('auth/register',['as' => 'auth.register_check','uses' => 'Auth\AuthC
 Route::get('/donate',['as' => 'donate','uses' => 'PaymentController@preparePayment']);
 
 Route::get('/pay',['as' => 'payment_done','uses' => 'PaymentController@done']);
+
+Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');

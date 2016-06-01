@@ -39,5 +39,9 @@ return [
         'password'  => env('PAYPAL_PASSWORD',''),
         'signature' => env('PAYPAL_SIGNATURE',''),
     ],
-
+    'github' => [
+        'client_id'     => env('GITHUB_CLIENT',''),
+        'client_secret' => env('GITHUB_SECRET',''),
+        'redirect'      => 'http://localhost:8000/auth/github/callback',
+    ],
 ];

@@ -18,6 +18,7 @@ class MenuServiceProvider extends ServiceProvider
             $menu->add(trans('navbar.articles'), array('route' => 'article.index'));
             $menu->add(trans('navbar.post'), array('route' => 'article.create'));
             $menu->add('Donate', array('route' => 'donate'));
+            $menu->add('Login w/ GitHub', array('url' => 'auth/github'));
         });
     }
 
