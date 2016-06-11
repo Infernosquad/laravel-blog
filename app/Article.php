@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
 class Article extends Model
 {
+    use HasMediaTrait;
+
     protected $fillable = ['title', 'body'];
 
     public function comments()
@@ -17,4 +20,5 @@ class Article extends Model
     {
         return $this->hasMany('App\Tag');
     }
+
 }

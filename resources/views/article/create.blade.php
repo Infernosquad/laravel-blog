@@ -7,10 +7,10 @@
 
     @if (isset($article))
         <?php $tags = $article->tags->implode('tag',',')  ?>
-        {!! Form::model($article, array('route' => array('article.update', $article->id),'method' => 'PUT')) !!}
+        {!! Form::model($article, array('route' => array('article.update', $article->id),'method' => 'PUT','files' => true)) !!}
     @else
         <?php $tags = '' ?>
-        {!! Form::open(array('route' => 'article.store' ,'method' => 'POST')) !!}
+        {!! Form::open(array('route' => 'article.store' ,'method' => 'POST','files' => true)) !!}
     @endif
 
     <div class="form-group">
@@ -20,6 +20,10 @@
     <div class="form-group">
         {!! Form::label('body','Body') !!}
         {!! Form::textarea('body',null,$options) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label('media','Media') !!}
+        {!! Form::file('media') !!}
     </div>
     <div class="form-group">
         {!! Form::label('tags','Tags') !!}

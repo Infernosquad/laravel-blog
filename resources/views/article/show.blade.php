@@ -10,6 +10,8 @@
         </header>
         <p>
             {{ $article->body }}
+                        <img src="/media/{{ $article->media[0]->id}}/{{ $article->media[0]->file_name }}" alt="" height="100" width="100">
+
         </p>
         <footer>
             @include('tag.list', ['tags' => $article->tags])

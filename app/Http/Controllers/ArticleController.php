@@ -63,8 +63,14 @@ class ArticleController extends Controller
 
             /** @var \Illuminate\Database\Eloquent\Model $article */
             $article = Article::findOrNew($id);
+
             $article->fill(Input::all());
             $article->save();
+
+            if (Input::hasFile('media'))
+            {
+                $article->addMedia(Input::file('media'))->toMediaLibrary();
+            }
 
             $oldTags = $article->tags->transform(function ($item) use ($tags) {
                 if(!in_array($item->tag,$tags)){
@@ -83,6 +89,7 @@ class ArticleController extends Controller
             }
 
             $article->tags()->saveMany($tagsCollection);
+
 
             return redirect()->route('article.index')->with('message','Successfully created article!');
         }

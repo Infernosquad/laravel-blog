@@ -140,6 +140,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Payum\LaravelPackage\PayumServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 
         /*
          * Application Service Providers...
