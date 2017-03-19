@@ -26,6 +26,10 @@
         {!! Form::file('media') !!}
     </div>
     <div class="form-group">
+        {!! Form::label('fileLink','File Link') !!}
+        {!! Form::text('fileLink',null,$options) !!}
+    </div>
+    <div class="form-group">
         {!! Form::label('tags','Tags') !!}
         <input name="tags" type="hidden" data-role="tagsinput" value="{{ $tags }}">
     </div>

@@ -43,10 +43,11 @@ class ArticleController extends Controller
      */
     public function store($id = 0)
     {
-        $rules = array(
-            'title' => 'required',
-            'body'  => 'required',
-        );
+        $rules = [
+            'title'    => 'required',
+            'body'     => 'required',
+            'fileLink' => 'file_link',
+        ];
 
         $validator = Validator::make(Input::all(), $rules);
 

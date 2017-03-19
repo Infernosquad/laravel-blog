@@ -19,7 +19,7 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @return Response|\Illuminate\Http\RedirectResponse
      */
     public function store()
     {

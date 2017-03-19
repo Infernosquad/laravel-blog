@@ -8,6 +8,7 @@ use App\Payment;
 use Payum\Core\PayumBuilder;
 use Payum\LaravelPackage\Storage\EloquentStorage;
 use Payum\LaravelPackage\Model\Token;
+use Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Validator::extend('file_link', 'App\Validators\FileLinkValidator@validate','File Link should be valid url and contain file');
     }
 
     /**
