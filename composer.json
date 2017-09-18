@@ -6,9 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*",
+        "laravel/framework": "5.5.*",
         "laravelcollective/html": "~5.2",
-        "caffeinated/menus": "~2.0",
+        "caffeinated/menus": "~3.0",
         "barryvdh/laravel-ide-helper": "^2.1",
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "payum/payum-laravel-package": "~1.0.3",
@@ -16,7 +16,7 @@
         "php-http/guzzle6-adapter": "^1.0",
         "laravel/socialite": "^2.0",
         "symfony/dom-crawler": "^3.1",
-        "spatie/laravel-medialibrary": "^3.18"
+        "spatie/laravel-medialibrary": "^6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

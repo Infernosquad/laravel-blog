@@ -4,7 +4,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
                 <li>
-                    <a href="{{ route('auth.logout') }}">
+                    <a href="{{ route('logout') }}">
                         Logout
                     </a>
                 </li>
@@ -12,7 +12,7 @@
         </li>
     </ul>
 @else
-    {!! Form::open(array('route' => 'auth.login_check' ,'method' => 'POST','class' => 'navbar-form navbar-right')) !!}
+    {!! Form::open(array('route' => 'login.post' ,'method' => 'POST','class' => 'navbar-form navbar-right')) !!}
     <div class="form-group">
         {!! Form::text('email',null,['value' => old('email'),'placeholder' => 'Email','class' => 'form-control']) !!}
         {!! Form::password('password',['placeholder' => 'Password','class' => 'form-control']) !!}

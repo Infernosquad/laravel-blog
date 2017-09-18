@@ -10,7 +10,9 @@
         </header>
         <p>
             {{ $article->body }}
-                        <img src="/media/{{ $article->media[0]->id}}/{{ $article->media[0]->file_name }}" alt="" height="100" width="100">
+            @if(isset($article->media[0]))
+                <img src="/media/{{ $article->media[0]->id}}/{{ $article->media[0]->file_name }}" alt="" height="100" width="100">
+            @endif
 
         </p>
         <footer>
